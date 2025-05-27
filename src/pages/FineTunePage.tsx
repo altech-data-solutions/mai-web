@@ -23,7 +23,7 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs";
 
-export function FineTunePage() {
+export function FineTunePage(): JSX.Element {
   const [selectedModelId, setSelectedModelId] = useState(MODELS[0].id);
   const [trainingProgress, setTrainingProgress] = useState(0);
   const [isTraining, setIsTraining] = useState(false);

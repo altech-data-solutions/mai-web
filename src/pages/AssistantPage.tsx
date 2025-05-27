@@ -22,7 +22,7 @@ interface AssistantConfig {
   modelId: string;
 }
 
-export function AssistantPage() {
+export function AssistantPage(): JSX.Element {
   const [selectedModelId, setSelectedModelId] = useState(MODELS[0].id);
   const [assistantConfig, setAssistantConfig] = useState<AssistantConfig>({
     name: "",

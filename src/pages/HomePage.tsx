@@ -4,7 +4,7 @@ import { APP_NAME } from "@/lib/constants";
 import { Braces, ArrowRight, MessageSquare, Bot, Settings } from "lucide-react";
 import { Link } from "react-router-dom";
 
-export function HomePage() {
+export function HomePage(): JSX.Element {
   return (
     <div className="space-y-6">
       <div className="flex flex-col items-center text-center gap-4">

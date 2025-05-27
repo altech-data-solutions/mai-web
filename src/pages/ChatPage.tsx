@@ -5,7 +5,7 @@ import { MODELS } from "@/lib/constants";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MessageSquare } from "lucide-react";
 
-export function ChatPage() {
+export function ChatPage(): JSX.Element {
   const [selectedModelId, setSelectedModelId] = useState(MODELS[0].id);
   const selectedModel = MODELS.find((model) => model.id === selectedModelId) || MODELS[0];
 
