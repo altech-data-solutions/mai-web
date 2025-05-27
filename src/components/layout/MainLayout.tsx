@@ -6,12 +6,12 @@ import { Toaster } from "@/components/ui/sonner";
 
 export function MainLayout() {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  
+
   return (
     <div className="flex min-h-screen bg-background">
-      <Sidebar 
-        isCollapsed={isCollapsed} 
-        onToggleCollapse={() => setIsCollapsed(!isCollapsed)} 
+      <Sidebar
+        isCollapsed={isCollapsed}
+        onToggleCollapse={() => setIsCollapsed(!isCollapsed)}
       />
       <div className="flex flex-1 flex-col">
         <Header />
