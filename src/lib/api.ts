@@ -4,7 +4,6 @@ import { getApiUrl, REQUEST_CONFIG, ENDPOINTS } from '@/config/api';
 // Types based on backend API
 export interface Model {
   Key: string;
-  Name: string;
   Path: string;
   Description?: string;
 }
@@ -199,11 +198,35 @@ class ApiClient {
     formData.append('new_model_name', data.new_model_name);
     formData.append('file', data.file);
 
-    return this.request<any>(ENDPOINTS.FINETUNE, {
-      method: 'POST',
-      body: formData,
-      headers: {}, // Remove Content-Type to let browser set it for FormData
-    });
+    const url = `${this.baseUrl}${ENDPOINTS.FINETUNE}`;
+    
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        body: formData,
+        credentials: 'include' as RequestCredentials,
+        // Don't set Content-Type header - let browser set it for FormData
+      });
+      
+      if (!response.ok) {
+        const errorText = await response.text();
+        let errorMessage = `HTTP error! status: ${response.status}`;
+        
+        try {
+          const errorJson = JSON.parse(errorText);
+          errorMessage = errorJson.detail || errorJson.message || errorMessage;
+        } catch {
+          errorMessage = errorText || errorMessage;
+        }
+        
+        throw new Error(errorMessage);
+      }
+      
+      return await response.json();
+    } catch (error) {
+      console.error(`API request failed: ${ENDPOINTS.FINETUNE}`, error);
+      throw error;
+    }
   }
 }
 

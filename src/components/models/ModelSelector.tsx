@@ -32,7 +32,7 @@ export function ModelSelector({
       .filter((model: Model) => model && model.Key) // Filter out invalid models
       .map((model: Model) => ({
         id: model.Key,
-        name: model.Name || model.Key || "Unknown Model",
+        name: model.Key, // Use Key as the display name
         description: model.Description || "No description available",
         category:
           model.Key &&

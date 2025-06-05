@@ -37,11 +37,7 @@ export function AssistantPage() {
     loading: updateLoading,
     error: updateError,
   } = useUpdateAssistant();
-  const {
-    deleteAssistant,
-    loading: deleteLoading,
-    error: deleteError,
-  } = useDeleteAssistant();
+  const { deleteAssistant, loading: deleteLoading } = useDeleteAssistant();
 
   const [selectedModelId, setSelectedModelId] = useState("");
   const [assistantConfig, setAssistantConfig] = useState<AssistantConfig>({
@@ -254,9 +250,9 @@ export function AssistantPage() {
                   </div>
                 ) : selectedModel ? (
                   <div className="flex items-center gap-2 rounded-md border p-2">
-                    <span className="font-medium">{selectedModel.Name}</span>
+                    <span className="font-medium">{selectedModel.Key}</span>
                     <span className="text-xs text-muted-foreground">
-                      {selectedModel.Key}
+                      {selectedModel.Path}
                     </span>
                   </div>
                 ) : (

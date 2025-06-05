@@ -4,7 +4,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Progress } from "@/components/ui/progress";
 import { ModelSelector } from "@/components/models/ModelSelector";
 import { Settings, Upload, Play, Plus, FileText } from "lucide-react";
 import { toast } from "sonner";
@@ -98,7 +97,7 @@ export function FineTunePage() {
         description: "This may take some time depending on your data size",
       });
 
-      const result = await startFineTune({
+      await startFineTune({
         base_model_id: selectedModelId,
         new_model_name: modelName,
         file: selectedFile,
@@ -120,10 +119,6 @@ export function FineTunePage() {
       console.error("Fine-tuning error:", error);
     }
   };
-
-  const selectedModel = models?.find(
-    (model: Model) => model.Key === selectedModelId
-  );
 
   return (
     <div className="space-y-6">
@@ -178,7 +173,7 @@ export function FineTunePage() {
                     <SelectContent>
                       {baseModels.map((model: Model) => (
                         <SelectItem key={model.Key} value={model.Key}>
-                          {model.Name}
+                          {model.Key}
                         </SelectItem>
                       ))}
                     </SelectContent>
