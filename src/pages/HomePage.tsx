@@ -34,7 +34,7 @@ export function HomePage(): JSX.Element {
         <Card className="transition-all hover:shadow-md">
           <CardHeader className="flex flex-row items-center gap-2 pb-2">
             <MessageSquare className="h-5 w-5 text-primary" />
-            <CardTitle className="text-lg">Chat with Models</CardTitle>
+            <CardTitle className="text-lg">Chat with Assistants</CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-sm text-muted-foreground">

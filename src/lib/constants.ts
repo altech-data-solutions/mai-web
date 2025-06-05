@@ -7,7 +7,7 @@ export const NAVIGATION_ITEMS = [
     icon: "home",
   },
   {
-    title: "Chat with Models",
+    title: "Chat with Assistants",
     href: "/chat",
     icon: "message-square",
   },
