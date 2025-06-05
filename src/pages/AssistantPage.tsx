@@ -24,6 +24,7 @@ interface AssistantConfig {
   modelId: string;
 }
 
+
 export function AssistantPage() {
   const { data: models, loading: modelsLoading } = useModels();
   const { data: assistants, refetch: refetchAssistants } = useAssistants();

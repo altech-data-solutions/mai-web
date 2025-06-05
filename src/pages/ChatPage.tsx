@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MessageSquare, Users, MessageCircle } from "lucide-react";
 import { useAssistants, useThreads } from "@/hooks/useApi";
 
+
 export function ChatPage() {
   const { data: assistants, loading: assistantsLoading } = useAssistants();
   const {
